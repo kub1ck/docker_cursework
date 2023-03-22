@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-12">
+
+                                <h1 class="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Логи</h1>
+
+                                <hr>
+
+                                {% if object %}
+                                    <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                                        {{ object.file.file }}</p>
+                                    <p class="text h4">Результат:</p>
+
+                                    <br>
+                                    <p class="text">{{ object.info}}</p>
+                                    <br>
+
+                                    {% if object.send_mail %}
+
+                                        <div class="d-flex justify-content-center">
+                                            <h3>Письмо отправлено на почту</h3>
+                                        </div>
+
+                                    {% else %}
+
+                                        <div class="d-flex justify-content-center">
+                                            <h3>Письмо не отправлено на почту</h3>
+                                        </div>
+
+                                    {% endif %}
+
+                                {% else %}
+                                    <div class="d-flex justify-content-center">
+                                        <p class="text h3">Файл проверяется</p>
+                                    </div>
+                                {% endif %}
+
+                                <hr>
+
+                                <div class="text-center mt-5 mx-1 mx-md-4 mt-4">
+                                    <a class="btn btn-outline-dark" href="{% url 'files_list' %}">Назад</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

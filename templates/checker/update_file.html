@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-8">
+
+                                <h1 class="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Обновить файл</h1>
+                                <h5 class="text-center mx-5 mx-md-4 mt-4">Текущий файл: {{ object.file }}</h5>
+
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+
+                                    <div>
+                                        <input class="form-control form-control-lg mt-4" type="file" name="file" required id="id_file">
+                                    </div>
+
+                                    <div class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                                        <a class="btn btn-outline-dark" href="{% url 'files_list' %}">Назад</a>
+                                        <button class="btn btn-primary">Обновить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock%}

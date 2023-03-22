@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Авторизация {% endblock %}
+
+{% block content %}
+
+    <main class="form-signin text-center">
+        <h1 class="h3 mb-3 fw-normal">Вход</h1>
+
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-floating p-1">
+                <input type="email" class="form-control" name="username" placeholder="Почта">
+            </div>
+
+            <div class="form-floating p-1">
+                <input type="password" class="form-control" name="password" placeholder="Пароль">
+            </div>
+
+            <button class="btn btn-lg btn-primary button-access" type="submit">Войти</button>
+            <a class="nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
+        </form>
+    </main>
+
+{% endblock %}
